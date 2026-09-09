@@ -2725,3 +2725,754 @@ section {
     flex-direction: column;
   }
 }
+
+
+/* =========================================================
+   WORK WITH ME PAGE
+   ========================================================= */
+
+
+/* HERO */
+
+.wwm-hero {
+  position: relative;
+  min-height: 900px;
+  padding: 180px 0 130px;
+  background:
+    radial-gradient(circle at 75% 30%, rgba(239,79,145,0.28), transparent 32%),
+    linear-gradient(135deg, #fffaf6 0%, #f9e0e9 58%, #fff5ef 100%);
+  overflow: hidden;
+}
+
+.wwm-hero::after {
+  content: "";
+  position: absolute;
+  left: -5%;
+  bottom: -34px;
+  width: 110%;
+  height: 90px;
+  background: var(--cream-deep);
+  clip-path: polygon(
+    0 48%,
+    8% 31%,
+    17% 50%,
+    27% 27%,
+    38% 46%,
+    49% 25%,
+    61% 49%,
+    72% 29%,
+    84% 46%,
+    93% 25%,
+    100% 39%,
+    100% 100%,
+    0 100%
+  );
+}
+
+.wwm-hero-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.wwm-hero-copy {
+  position: relative;
+  z-index: 5;
+}
+
+.wwm-hero-copy h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(3.8rem, 7vw, 7.3rem);
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+  margin-bottom: 20px;
+}
+
+.wwm-hero-copy h1 span {
+  display: block;
+  font-family: "Sevillana", cursive;
+  font-weight: 400;
+  color: var(--pink);
+  letter-spacing: 0;
+  transform: rotate(-2deg);
+  margin: 18px 0 0 25px;
+}
+
+.wwm-hero-script {
+  font-family: "Crafty Girls", cursive;
+  color: var(--rose);
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+  transform: rotate(-2deg);
+  margin: 25px 0 32px 20px;
+}
+
+.wwm-hero-text {
+  max-width: 690px;
+  font-size: 1.1rem;
+  line-height: 1.75;
+}
+
+.wwm-hero-ending {
+  font-family: "Henny Penny", cursive;
+  font-size: 2.3rem;
+  margin: 30px 0 28px;
+}
+
+.wwm-hero-art {
+  position: relative;
+  height: 600px;
+}
+
+.wwm-circle {
+  position: absolute;
+  width: 118%;
+  height: 118%;
+  object-fit: contain;
+  left: -9%;
+  top: -9%;
+  transform: rotate(9deg);
+}
+
+.wwm-diva {
+  position: absolute;
+  width: 88%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-3deg);
+  filter: drop-shadow(0 25px 35px rgba(30,15,20,0.18));
+}
+
+.wwm-art-note {
+  position: absolute;
+  right: -20px;
+  bottom: 80px;
+  font-family: "Crafty Girls", cursive;
+  color: var(--rose);
+  font-size: 1.15rem;
+  transform: rotate(7deg);
+}
+
+.wwm-hero-scribble {
+  position: absolute;
+  right: 5%;
+  top: 125px;
+  font-family: "Crafty Girls", cursive;
+  color: rgba(200,50,111,0.65);
+  transform: rotate(7deg);
+}
+
+
+/* WHO FOR */
+
+.wwm-who {
+  padding: 150px 0;
+  background: var(--cream-deep);
+}
+
+.wwm-who .section-heading {
+  margin-left: 0;
+}
+
+.wwm-who .section-heading h2 span {
+  margin-left: 35px;
+}
+
+.wwm-who-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 70px;
+}
+
+.wwm-who-card {
+  position: relative;
+  min-height: 220px;
+  padding: 42px 30px 30px;
+  background: var(--white);
+  border-radius: 7px 28px 10px 30px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wwm-who-card:nth-child(1),
+.wwm-who-card:nth-child(5) {
+  transform: rotate(-1.5deg);
+}
+
+.wwm-who-card:nth-child(2),
+.wwm-who-card:nth-child(6) {
+  transform: rotate(1.2deg) translateY(-10px);
+}
+
+.wwm-who-card:nth-child(3) {
+  transform: rotate(-0.8deg) translateY(10px);
+}
+
+.wwm-who-card:nth-child(4) {
+  transform: rotate(1deg);
+}
+
+.wwm-who-card > span {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-family: "Crafty Girls", cursive;
+  color: var(--pink);
+}
+
+.wwm-who-card p {
+  font-size: 1.08rem;
+}
+
+.wwm-who-card-feature {
+  background: var(--charcoal);
+  color: var(--white);
+}
+
+.wwm-who-card-feature strong {
+  font-family: "Henny Penny", cursive;
+  color: var(--pink-soft);
+  font-size: 2rem;
+  line-height: 1.15;
+}
+
+.wwm-who-card-feature small {
+  margin-top: 12px;
+  font-family: "Crafty Girls", cursive;
+  color: var(--pink-soft);
+  font-size: 1rem;
+  transform: rotate(-3deg);
+}
+
+
+/* REALITY */
+
+.wwm-reality {
+  padding: 150px 0;
+  background: var(--cream);
+}
+
+.wwm-reality-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 34px;
+  margin-top: 70px;
+}
+
+.wwm-reality-grid article {
+  position: relative;
+  padding: 55px 42px 42px;
+  border: 1px solid rgba(30,20,25,0.08);
+  border-radius: 30px;
+  background: rgba(255,255,255,0.8);
+}
+
+.wwm-reality-grid article:nth-child(1) {
+  transform: rotate(-1deg);
+}
+
+.wwm-reality-grid article:nth-child(2) {
+  transform: rotate(1deg) translateY(18px);
+}
+
+.wwm-reality-grid article:nth-child(3) {
+  transform: rotate(0.8deg);
+}
+
+.wwm-reality-grid article:nth-child(4) {
+  transform: rotate(-1deg) translateY(18px);
+}
+
+.wwm-number {
+  position: absolute;
+  top: -22px;
+  left: 30px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--pink);
+  color: var(--white);
+  display: grid;
+  place-items: center;
+  font-family: "Crafty Girls", cursive;
+  transform: rotate(-7deg);
+}
+
+.wwm-reality-grid h3 {
+  font-family: "Henny Penny", cursive;
+  font-size: 2.8rem;
+  margin-bottom: 16px;
+}
+
+.wwm-reality-grid p {
+  font-size: 1.08rem;
+}
+
+.wwm-oops {
+  font-family: "Crafty Girls", cursive;
+  color: var(--rose);
+  font-size: 1.35rem !important;
+  transform: rotate(-2deg);
+}
+
+
+/* NOPE */
+
+.wwm-nope {
+  position: relative;
+  padding: 145px 0;
+  background: var(--charcoal);
+  color: var(--white);
+  overflow: hidden;
+}
+
+.wwm-nope-inner {
+  position: relative;
+  z-index: 3;
+}
+
+.wwm-nope-small {
+  font-family: "Crafty Girls", cursive;
+  color: var(--pink-soft);
+  transform: rotate(-3deg);
+  font-size: 1.1rem;
+}
+
+.wwm-nope h2 {
+  color: var(--white);
+  font-family: "Henny Penny", cursive;
+  font-size: clamp(3rem, 6vw, 6rem);
+  max-width: 1000px;
+  margin: 20px auto;
+}
+
+.wwm-nope h2 span {
+  display: block;
+  color: var(--pink);
+  transform: rotate(-1deg);
+}
+
+.wwm-nope-script {
+  font-family: "Mystery Quest", cursive;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  color: var(--pink-soft);
+  margin: 35px 0 15px;
+}
+
+.wwm-nope-ending {
+  max-width: 720px;
+  margin: auto;
+  color: rgba(255,255,255,0.78);
+  font-size: 1.15rem;
+}
+
+.wwm-nope-brush {
+  position: absolute;
+  width: 900px;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%, -50%) rotate(-5deg);
+  opacity: 0.1;
+}
+
+
+/* WHAT WE DO */
+
+.wwm-do {
+  padding: 150px 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(247,184,206,0.25), transparent 30%),
+    var(--cream);
+}
+
+.wwm-do-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 90px;
+  align-items: start;
+}
+
+.wwm-do-heading {
+  position: sticky;
+  top: 130px;
+}
+
+.wwm-do-heading h2 span {
+  display: block;
+  font-family: "Sevillana", cursive;
+  font-weight: 400;
+}
+
+.wwm-do-heading > p:last-child {
+  font-family: "Crafty Girls", cursive;
+  color: var(--rose);
+  font-size: 1.3rem;
+  transform: rotate(-2deg);
+}
+
+.wwm-do-list {
+  display: grid;
+  gap: 22px;
+}
+
+.wwm-do-item {
+  padding: 32px 34px;
+  border-left: 5px solid var(--pink);
+  background: var(--white);
+  box-shadow: 8px 12px 30px rgba(20,10,15,0.07);
+}
+
+.wwm-do-item:nth-child(odd) {
+  transform: rotate(-0.6deg);
+}
+
+.wwm-do-item:nth-child(even) {
+  transform: translateX(22px) rotate(0.7deg);
+}
+
+.wwm-do-item strong {
+  display: block;
+  font-family: "Henny Penny", cursive;
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.wwm-do-item span {
+  color: var(--muted);
+}
+
+
+/* WAYS */
+
+.wwm-ways {
+  padding: 150px 0;
+  background: #fff1f5;
+  overflow: hidden;
+}
+
+.wwm-ways .section-heading p:last-child {
+  max-width: 700px;
+  margin: 20px auto 0;
+}
+
+.wwm-ways-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 80px;
+  align-items: stretch;
+}
+
+.wwm-way-card {
+  position: relative;
+  padding: 45px 32px 65px;
+  background: var(--white);
+  border-radius: 8px 30px 10px 32px;
+  box-shadow: var(--shadow);
+}
+
+.wwm-way-card:nth-child(1) {
+  transform: rotate(-1.5deg);
+}
+
+.wwm-way-card:nth-child(3) {
+  transform: rotate(1.3deg);
+}
+
+.wwm-way-card-main {
+  background: var(--charcoal);
+  color: var(--white);
+  transform: translateY(-25px) rotate(0.5deg);
+}
+
+.wwm-way-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--pink);
+}
+
+.wwm-way-card-main .wwm-way-label {
+  color: var(--pink-soft);
+}
+
+.wwm-way-card h3 {
+  font-family: "Henny Penny", cursive;
+  font-size: 2.5rem;
+  margin: 20px 0;
+}
+
+.wwm-way-card-main h3 {
+  color: var(--pink-soft);
+}
+
+.wwm-way-card-main p {
+  color: rgba(255,255,255,0.8);
+}
+
+.wwm-way-note {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-family: "Crafty Girls", cursive;
+  color: var(--rose);
+  transform: rotate(-4deg);
+}
+
+.wwm-way-card-main .wwm-way-note {
+  color: var(--pink-soft);
+}
+
+.wwm-package-warning {
+  text-align: center;
+  font-family: "Crafty Girls", cursive;
+  font-size: 1.25rem;
+  margin: 65px auto 25px;
+  transform: rotate(-1deg);
+}
+
+.wwm-package-warning span {
+  color: var(--rose);
+}
+
+.wwm-pricing-action {
+  text-align: center;
+}
+
+
+/* CHOICE */
+
+.wwm-choice {
+  position: relative;
+  padding: 145px 0;
+  background: var(--cream);
+}
+
+.wwm-choice h2 span {
+  display: block;
+  font-family: "Sevillana", cursive;
+  font-weight: 400;
+  transform: rotate(-2deg);
+}
+
+.wwm-choice p:not(.eyebrow) {
+  max-width: 720px;
+  margin: 25px auto;
+  font-size: 1.15rem;
+}
+
+.wwm-choice-script {
+  font-family: "Crafty Girls", cursive;
+  color: var(--rose);
+  font-size: 1.5rem !important;
+  transform: rotate(-2deg);
+}
+
+
+/* FINAL */
+
+.wwm-final {
+  padding: 150px 0;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(239,79,145,0.18), transparent 35%),
+    var(--charcoal);
+  color: var(--white);
+}
+
+.wwm-final .eyebrow {
+  color: var(--pink-soft);
+}
+
+.wwm-final h2 {
+  color: var(--white);
+  font-family: "Henny Penny", cursive;
+  font-size: clamp(4rem, 8vw, 7rem);
+}
+
+.wwm-final h2 span {
+  display: block;
+  font-family: "Sevillana", cursive;
+  font-weight: 400;
+  color: var(--pink);
+  transform: rotate(-2deg);
+}
+
+.wwm-final > .section-shell > p:not(.eyebrow) {
+  max-width: 680px;
+  margin: 20px auto;
+  color: rgba(255,255,255,0.8);
+  font-size: 1.15rem;
+}
+
+
+/* =========================================================
+   WORK WITH ME — TABLET
+   ========================================================= */
+
+@media (max-width: 980px) {
+
+  .wwm-hero-grid,
+  .wwm-do-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wwm-hero {
+    padding-top: 140px;
+  }
+
+  .wwm-hero-art {
+    height: 500px;
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+  }
+
+  .wwm-who-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .wwm-who-card:nth-child(n) {
+    transform: none;
+  }
+
+  .wwm-reality-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wwm-reality-grid article:nth-child(n) {
+    transform: none;
+  }
+
+  .wwm-do-heading {
+    position: relative;
+    top: auto;
+  }
+
+  .wwm-do-item:nth-child(n) {
+    transform: none;
+  }
+
+  .wwm-ways-grid {
+    grid-template-columns: 1fr;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .wwm-way-card:nth-child(n),
+  .wwm-way-card-main {
+    transform: none;
+  }
+
+  .wwm-way-card {
+    min-height: 300px;
+  }
+}
+
+
+/* =========================================================
+   WORK WITH ME — MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .wwm-hero {
+    min-height: auto;
+    padding: 125px 0 95px;
+  }
+
+  .wwm-hero-copy h1 {
+    font-size: clamp(3rem, 14vw, 4.7rem);
+  }
+
+  .wwm-hero-copy h1 span {
+    margin-left: 0;
+  }
+
+  .wwm-hero-script {
+    margin-left: 0;
+  }
+
+  .wwm-hero-art {
+    height: 370px;
+  }
+
+  .wwm-diva {
+    width: 92%;
+  }
+
+  .wwm-art-note {
+    right: 5px;
+    bottom: 30px;
+    font-size: 0.9rem;
+  }
+
+  .wwm-hero-scribble {
+    display: none;
+  }
+
+  .wwm-who,
+  .wwm-reality,
+  .wwm-do,
+  .wwm-ways,
+  .wwm-choice,
+  .wwm-final {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .wwm-who .section-heading h2 span {
+    margin-left: 0;
+  }
+
+  .wwm-who-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .wwm-who-card {
+    min-height: auto;
+  }
+
+  .wwm-reality-grid article {
+    padding: 48px 26px 30px;
+  }
+
+  .wwm-nope {
+    padding: 90px 0;
+  }
+
+  .wwm-nope h2 {
+    font-size: clamp(2.7rem, 12vw, 4rem);
+  }
+
+  .wwm-nope-script {
+    font-size: 1.8rem;
+  }
+
+  .wwm-do-grid {
+    gap: 45px;
+  }
+
+  .wwm-do-item {
+    padding: 27px 24px;
+  }
+
+  .wwm-way-card {
+    min-height: auto;
+    padding: 38px 26px 65px;
+  }
+
+  .wwm-package-warning {
+    margin-top: 45px;
+  }
+
+  .wwm-final .final-actions {
+    flex-direction: column;
+  }
+}
