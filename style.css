@@ -1963,3 +1963,765 @@ section {
     width: 260px;
   }
 }
+
+
+/* =========================================================
+   ABOUT / MY JOURNEY PAGE
+   ========================================================= */
+
+/* HERO */
+
+.about-page-hero {
+  position: relative;
+  min-height: 820px;
+  padding: 180px 0 120px;
+  background:
+    radial-gradient(circle at 18% 30%, rgba(239,79,145,0.22), transparent 32%),
+    linear-gradient(135deg, #fff9f5 0%, #f9dce8 50%, #fff4ef 100%);
+  overflow: hidden;
+}
+
+.about-page-hero::after {
+  content: "";
+  position: absolute;
+  left: -5%;
+  bottom: -32px;
+  width: 110%;
+  height: 80px;
+  background: var(--cream);
+  clip-path: polygon(
+    0 48%,
+    10% 35%,
+    18% 52%,
+    29% 32%,
+    40% 50%,
+    53% 30%,
+    66% 48%,
+    78% 28%,
+    90% 45%,
+    100% 32%,
+    100% 100%,
+    0 100%
+  );
+}
+
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 70px;
+}
+
+.about-hero-copy {
+  position: relative;
+  z-index: 4;
+}
+
+.about-hero-copy h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(3.6rem, 7vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  margin-bottom: 10px;
+}
+
+.about-hero-copy h1 span {
+  display: block;
+  font-family: "Sevillana", cursive;
+  font-weight: 400;
+  color: var(--pink);
+  font-size: 1.02em;
+  letter-spacing: 0;
+  transform: rotate(-2deg);
+  margin: 18px 0 10px 28px;
+}
+
+.about-hero-script {
+  font-family: "Crafty Girls", cursive;
+  color: var(--rose);
+  font-size: 1.6rem;
+  transform: rotate(-4deg);
+  margin: 14px 0 24px 50px;
+}
+
+.about-hero-intro {
+  max-width: 660px;
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+.about-hero-photo {
+  position: relative;
+  height: 580px;
+}
+
+.about-page-circle {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  object-fit: contain;
+  left: -10%;
+  top: -10%;
+  transform: rotate(8deg);
+}
+
+.about-page-photo {
+  position: absolute;
+  width: 65%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(2deg);
+  border-radius: 42% 42% 8px 8px;
+  box-shadow: 0 25px 70px rgba(20,10,15,0.22);
+}
+
+.about-photo-note {
+  position: absolute;
+  right: 0;
+  top: 18%;
+  font-family: "Crafty Girls", cursive;
+  color: var(--rose);
+  font-size: 1.2rem;
+  transform: rotate(8deg);
+}
+
+.about-hero-sparks {
+  position: absolute;
+  width: 420px;
+  right: -90px;
+  top: 90px;
+  opacity: 0.35;
+}
+
+
+/* STORY */
+
+.about-story-section {
+  padding: 140px 0;
+  background: var(--cream);
+}
+
+.about-story-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 90px;
+  align-items: start;
+}
+
+.about-story-heading {
+  position: sticky;
+  top: 130px;
+}
+
+.about-story-heading h2 {
+  font-size: clamp(3rem, 5vw, 5.4rem);
+}
+
+.about-story-heading h2 span {
+  display: block;
+  font-family: "Sevillana", cursive;
+  font-weight: 400;
+  transform: rotate(-2deg);
+}
+
+.about-story-arrow {
+  width: 180px;
+  margin: 35px 0 0 auto;
+  transform: rotate(15deg);
+}
+
+.about-story-copy {
+  font-size: 1.15rem;
+  line-height: 1.85;
+}
+
+.about-story-copy > p {
+  margin-bottom: 28px;
+}
+
+.story-pullquote {
+  margin: 45px 0;
+  padding: 34px 40px;
+  background: var(--pink-pale);
+  border-left: 5px solid var(--pink);
+  transform: rotate(-0.7deg);
+  box-shadow: 12px 14px 0 rgba(239,79,145,0.08);
+}
+
+.story-pullquote strong {
+  display: block;
+  font-family: "Henny Penny", cursive;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.story-pullquote span {
+  display: block;
+}
+
+
+/* REBEL STATEMENT */
+
+.about-rebel-section {
+  position: relative;
+  padding: 100px 20px;
+  background: var(--charcoal);
+  overflow: hidden;
+}
+
+.about-rebel-inner {
+  position: relative;
+  width: min(94%, 1000px);
+  margin: auto;
+}
+
+.about-rebel-brush {
+  width: 100%;
+  transform: rotate(-1deg) scale(1.08);
+}
+
+.about-rebel-copy {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  padding: 10% 14%;
+}
+
+.about-rebel-copy p {
+  font-family: "Mystery Quest", cursive;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+
+.about-rebel-copy span {
+  font-family: "Crafty Girls", cursive;
+  color: var(--pink-soft);
+  font-size: 1.4rem;
+  transform: rotate(-3deg);
+}
+
+
+/* WHY FLAMINGORISE */
+
+.why-rise-section {
+  padding: 145px 0;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(247,184,206,0.3), transparent 30%),
+    var(--cream-deep);
+}
+
+.why-rise-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 85px;
+  align-items: center;
+}
+
+.why-rise-copy h2 {
+  font-size: clamp(3rem, 5vw, 5.3rem);
+}
+
+.why-rise-copy h2 span {
+  display: block;
+  font-family: "Sevillana", cursive;
+  font-weight: 400;
+  transform: rotate(-1.5deg);
+}
+
+.why-rise-copy p {
+  font-size: 1.1rem;
+}
+
+.why-rise-values {
+  display: grid;
+  gap: 24px;
+}
+
+.value-card {
+  position: relative;
+  padding: 30px 34px;
+  background: rgba(255,255,255,0.78);
+  box-shadow: var(--shadow);
+  border-radius: 8px 28px 10px 26px;
+}
+
+.value-card:nth-child(1) {
+  transform: rotate(-2deg);
+}
+
+.value-card:nth-child(2) {
+  transform: translateX(30px) rotate(1deg);
+}
+
+.value-card:nth-child(3) {
+  transform: rotate(-1deg);
+}
+
+.value-card > span {
+  position: absolute;
+  right: 20px;
+  top: 14px;
+  font-family: "Crafty Girls", cursive;
+  color: var(--pink);
+}
+
+.value-card h3 {
+  font-family: "Henny Penny", cursive;
+  font-size: 2.4rem;
+  margin-bottom: 8px;
+}
+
+
+/* HOW I WORK */
+
+.how-i-work-section {
+  position: relative;
+  padding: 140px 0;
+  background: var(--cream);
+  overflow: hidden;
+}
+
+.how-work-heart {
+  position: absolute;
+  width: 330px;
+  left: -80px;
+  bottom: -70px;
+  opacity: 0.22;
+}
+
+.how-work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 65px;
+}
+
+.how-work-grid article {
+  padding: 38px 30px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+  border-radius: 28px;
+}
+
+.how-work-grid article:nth-child(1) {
+  transform: rotate(-1.5deg);
+}
+
+.how-work-grid article:nth-child(2) {
+  transform: translateY(-18px) rotate(1deg);
+}
+
+.how-work-grid article:nth-child(3) {
+  transform: rotate(-0.8deg);
+}
+
+.how-work-grid h3 {
+  font-family: "Henny Penny", cursive;
+  font-size: 2.6rem;
+}
+
+.how-work-action {
+  text-align: center;
+  margin-top: 55px;
+}
+
+
+/* HUMAN NOTES */
+
+.human-section {
+  padding: 145px 0;
+  background: #fff2f6;
+  overflow: hidden;
+}
+
+.human-section > .section-shell > h2 {
+  max-width: 800px;
+}
+
+.human-section h2 span {
+  display: block;
+  font-family: "Sevillana", cursive;
+  font-weight: 400;
+}
+
+.human-notes {
+  position: relative;
+  min-height: 520px;
+  margin-top: 60px;
+}
+
+.human-note {
+  position: absolute;
+  padding: 28px 30px;
+  background: var(--white);
+  box-shadow: 8px 10px 30px rgba(20,10,15,0.10);
+  font-family: "Crafty Girls", cursive;
+  font-size: 1.45rem;
+  line-height: 1.3;
+  border-radius: 5px;
+}
+
+.human-note span {
+  display: block;
+  color: var(--rose);
+}
+
+.note-one {
+  top: 40px;
+  left: 4%;
+  transform: rotate(-7deg);
+}
+
+.note-two {
+  top: 5px;
+  right: 22%;
+  transform: rotate(4deg);
+}
+
+.note-three {
+  bottom: 60px;
+  left: 27%;
+  transform: rotate(3deg);
+}
+
+.note-four {
+  bottom: 25px;
+  right: 4%;
+  transform: rotate(-5deg);
+}
+
+
+/* MEMOIR */
+
+.memoir-section {
+  padding: 150px 0;
+  background: var(--charcoal);
+  color: var(--white);
+}
+
+.memoir-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 90px;
+  align-items: center;
+}
+
+.memoir-art {
+  position: relative;
+}
+
+.memoir-placeholder {
+  position: relative;
+  width: min(100%, 430px);
+  min-height: 570px;
+  padding: 75px 45px;
+  background:
+    radial-gradient(circle at top, rgba(239,79,145,0.32), transparent 40%),
+    linear-gradient(145deg, #261c22, #0d0b0c);
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 20px 25px 60px rgba(0,0,0,0.4);
+  transform: rotate(-3deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.memoir-small {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.7rem;
+  color: var(--pink-soft);
+}
+
+.memoir-placeholder h2 {
+  font-family: "Henny Penny", cursive;
+  font-size: clamp(3rem, 5vw, 5rem);
+  margin: 25px 0;
+}
+
+.memoir-placeholder h2 span {
+  display: block;
+  font-family: "Sevillana", cursive;
+  font-weight: 400;
+  font-size: 0.8em;
+}
+
+.memoir-placeholder p {
+  font-family: "Crafty Girls", cursive;
+  color: var(--pink-soft);
+}
+
+.memoir-crown {
+  position: absolute;
+  width: 210px;
+  left: -80px;
+  top: -90px;
+  z-index: 5;
+  transform: rotate(-12deg);
+}
+
+.memoir-copy .eyebrow {
+  color: var(--pink-soft);
+}
+
+.memoir-copy h2 {
+  color: var(--white);
+}
+
+.memoir-copy h2 span {
+  display: block;
+  font-family: "Sevillana", cursive;
+  font-weight: 400;
+}
+
+.memoir-copy p {
+  color: rgba(255,255,255,0.78);
+  font-size: 1.1rem;
+}
+
+.memoir-status {
+  font-family: "Crafty Girls", cursive;
+  color: var(--pink-soft);
+  font-size: 1.6rem;
+  margin: 26px 0 18px;
+  transform: rotate(-2deg);
+}
+
+.memoir-coming-soon {
+  background: rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.6);
+  cursor: default;
+}
+
+
+/* FINAL */
+
+.about-final-cta {
+  position: relative;
+  padding: 145px 0;
+  background: var(--cream);
+  overflow: hidden;
+}
+
+.about-final-cta h2 {
+  font-family: "Henny Penny", cursive;
+  font-size: clamp(4rem, 8vw, 7rem);
+}
+
+.about-final-cta h2 span {
+  font-family: "Sevillana", cursive;
+  font-weight: 400;
+}
+
+.about-final-cta p {
+  max-width: 680px;
+  margin: 20px auto 0;
+  font-size: 1.2rem;
+}
+
+.about-final-brush {
+  position: absolute;
+  width: 700px;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%, -50%) rotate(-4deg);
+  opacity: 0.14;
+}
+
+
+/* ACTIVE NAV */
+
+.main-nav .active-link {
+  color: var(--rose);
+}
+
+.main-nav .active-link::after {
+  width: 100%;
+}
+
+
+/* =========================================================
+   ABOUT MOBILE
+   ========================================================= */
+
+@media (max-width: 980px) {
+
+  .about-hero-grid,
+  .about-story-grid,
+  .why-rise-grid,
+  .memoir-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-page-hero {
+    padding-top: 135px;
+  }
+
+  .about-hero-photo {
+    height: 500px;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .about-story-heading {
+    position: relative;
+    top: auto;
+  }
+
+  .about-story-arrow {
+    display: none;
+  }
+
+  .why-rise-values {
+    max-width: 650px;
+    width: 100%;
+    margin: auto;
+  }
+
+  .how-work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .how-work-grid article:nth-child(1),
+  .how-work-grid article:nth-child(2),
+  .how-work-grid article:nth-child(3) {
+    transform: none;
+  }
+
+  .human-notes {
+    min-height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .human-note {
+    position: relative;
+    inset: auto;
+  }
+
+  .note-one,
+  .note-two,
+  .note-three,
+  .note-four {
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+  }
+
+  .memoir-placeholder {
+    margin: 0 auto;
+  }
+}
+
+
+@media (max-width: 700px) {
+
+  .about-page-hero {
+    min-height: auto;
+    padding: 125px 0 95px;
+  }
+
+  .about-hero-copy h1 {
+    font-size: clamp(3rem, 14vw, 4.6rem);
+  }
+
+  .about-hero-copy h1 span {
+    margin-left: 0;
+  }
+
+  .about-hero-script {
+    margin-left: 15px;
+  }
+
+  .about-hero-photo {
+    height: 390px;
+  }
+
+  .about-page-photo {
+    width: 68%;
+  }
+
+  .about-photo-note {
+    right: 3%;
+    font-size: 0.95rem;
+  }
+
+  .about-story-section,
+  .why-rise-section,
+  .how-i-work-section,
+  .human-section,
+  .memoir-section,
+  .about-final-cta {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .story-pullquote {
+    padding: 26px;
+  }
+
+  .about-rebel-section {
+    padding: 75px 8px;
+  }
+
+  .about-rebel-copy {
+    padding: 9% 12%;
+  }
+
+  .about-rebel-copy p {
+    font-size: 1.6rem;
+  }
+
+  .about-rebel-copy span {
+    font-size: 1rem;
+  }
+
+  .value-card:nth-child(1),
+  .value-card:nth-child(2),
+  .value-card:nth-child(3) {
+    transform: none;
+  }
+
+  .value-card:nth-child(2) {
+    transform: none;
+  }
+
+  .human-notes {
+    grid-template-columns: 1fr;
+  }
+
+  .human-note {
+    transform: none !important;
+  }
+
+  .memoir-placeholder {
+    width: 90%;
+    min-height: 490px;
+    padding: 55px 30px;
+  }
+
+  .memoir-crown {
+    width: 150px;
+    left: -15px;
+    top: -65px;
+  }
+
+  .about-final-cta .final-actions {
+    flex-direction: column;
+  }
+}
