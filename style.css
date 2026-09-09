@@ -1177,3 +1177,59 @@ h2 span {
     text-align: center;
   }
 }
+
+
+/* =========================
+   FINAL FONT OVERRIDES
+   Keep at bottom of stylesheet
+   ========================= */
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.main-nav,
+.button,
+.eyebrow,
+.pathway-label,
+.vb-label,
+.hub-tags,
+.hub-tags span,
+.footer-column h3,
+.footer-bottom,
+.text-link,
+.hero-kicker,
+.hero-scroll,
+.soft-kicker {
+  font-family: "Montserrat", sans-serif;
+}
+
+.hero h1 {
+  font-family: "Montserrat", sans-serif;
+}
+
+.hero h1 span,
+.hero h2 span,
+.welcome-section h2 span,
+.section-heading h2 span,
+.about-copy h2 span,
+.soft-section h2 span,
+.final-cta h3 {
+  font-family: "Sevillana", cursive;
+}
+
+.rhs-heading h2,
+.rhs-card h3,
+.pathway-content h3,
+.rise-hub-copy h3,
+.final-cta h2 {
+  font-family: "Henny Penny", cursive;
+}
+
+.rebel-quote-copy span {
+  font-family: "Crafty Girls", cursive;
+}
+
+.rebel-quote-copy p {
+  font-family: "Mystery Quest", cursive;
+}
