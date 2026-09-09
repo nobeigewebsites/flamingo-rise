@@ -1,1 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Login | FlamingoRise</title>
+
+  <meta
+    name="description"
+    content="Log in to your FlamingoRise space and access your resources, downloads and member content."
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="login-page">
+
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
+
+  <header class="site-header">
+
+    <div class="nav-container">
+
+      <a href="index.html" class="brand">
+        <img src="images/logo.webp" alt="FlamingoRise">
+      </a>
+
+      <button
+        class="menu-toggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="main-nav">
+
+        <a href="index.html">Home</a>
+        <a href="about.html">My Journey</a>
+        <a href="work-with-me.html">Work With Me</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="resources.html">The Rise Hub</a>
+        <a href="contact.html">Contact</a>
+
+        <a href="login.html" class="nav-login active-link">
+          Login
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <!-- =====================================================
+         LOGIN HERO
+         ===================================================== -->
+
+    <section class="login-hero">
+
+      <!-- DECORATIVE SIDE SCRIBBLES -->
+
+      <div class="login-scribbles login-scribbles-left" aria-hidden="true">
+
+        <span class="login-scribble scribble-one">
+          you're doing fucking amazing today ↑
+        </span>
+
+        <span class="login-scribble scribble-two">
+          survived 100% of the bullshit so far.
+        </span>
+
+        <span class="login-scribble scribble-three">
+          still here.<br>
+          still standing.<br>
+          that'll do.
+        </span>
+
+      </div>
+
+
+      <div class="login-scribbles login-scribbles-right" aria-hidden="true">
+
+        <span class="login-scribble scribble-four">
+          reminder:<br>
+          you don't need permission →
+        </span>
+
+        <span class="login-scribble scribble-five">
+          progress can look<br>
+          suspiciously like chaos.
+        </span>
+
+        <span class="login-scribble scribble-six">
+          bad day ≠ bad life
+        </span>
+
+      </div>
+
+
+      <div class="section-shell login-shell">
+
+        <!-- INTRO -->
+
+        <div class="login-intro">
+
+          <p class="eyebrow">
+            Your FlamingoRise space
+          </p>
+
+          <h1>
+            Your stuff.
+            <span>All in one place.</span>
+          </h1>
+
+          <p class="login-intro-script">
+            Because emailing yourself seventeen PDFs is not a filing system.
+          </p>
+
+        </div>
+
+
+        <!-- LOGIN PANEL -->
+
+        <div class="login-panel">
+
+          <div class="login-panel-logo">
+
+            <img
+              src="images/logo-primary.png"
+              alt="FlamingoRise"
+            >
+
+          </div>
+
+
+          <div class="login-panel-heading">
+
+            <span class="login-small-note">
+              Oh look who came back 👀
+            </span>
+
+            <h2>
+              Welcome back.
+            </h2>
+
+            <p>
+              Log in and let's see what you've got waiting for you.
+            </p>
+
+          </div>
+
+
+          <!--
+            LOGIN FORM
+
+            The form action will be connected to the secure
+            authentication provider during the functionality pass.
+
+            DO NOT send passwords through Formspree.
+          -->
+
+          <form class="login-form" id="login-form">
+
+            <div class="form-field">
+
+              <label for="login-email">
+                Email address
+              </label>
+
+              <input
+                type="email"
+                id="login-email"
+                name="email"
+                autocomplete="email"
+                required
+              >
+
+            </div>
+
+
+            <div class="form-field">
+
+              <div class="login-password-label">
+
+                <label for="login-password">
+                  Password
+                </label>
+
+                <a href="#" class="forgot-password">
+                  Forgot the bloody thing?
+                </a>
+
+              </div>
+
+              <input
+                type="password"
+                id="login-password"
+                name="password"
+                autocomplete="current-password"
+                required
+              >
+
+            </div>
+
+
+            <label class="login-remember">
+
+              <input
+                type="checkbox"
+                name="remember"
+              >
+
+              <span>
+                Remember me on this device
+              </span>
+
+            </label>
+
+
+            <button
+              type="submit"
+              class="button button-primary login-button"
+            >
+              Let me in →
+            </button>
+
+          </form>
+
+
+          <div class="login-divider">
+
+            <span>
+              new around here?
+            </span>
+
+          </div>
+
+
+          <div class="login-create">
+
+            <h3>
+              Don't have an account yet?
+            </h3>
+
+            <p>
+              Create one to keep your FlamingoRise stuff together
+              without hunting through your downloads folder like
+              you're excavating Pompeii.
+            </p>
+
+            <a
+              href="#create-account"
+              class="button button-dark"
+            >
+              Create my account
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- BOTTOM SCRIBBLE -->
+
+        <p class="login-bottom-scribble">
+          password remembered first time?
+          frankly, show-off behaviour.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CREATE ACCOUNT
+         ===================================================== -->
+
+    <section class="create-account-section" id="create-account">
+
+      <div class="section-shell create-account-grid">
+
+        <div class="create-account-copy">
+
+          <p class="eyebrow">
+            New here?
+          </p>
+
+          <h2>
+            Make yourself
+            <span>at home.</span>
+          </h2>
+
+          <p>
+            Your account gives you one place for the FlamingoRise
+            resources and content that belong to you.
+          </p>
+
+          <p>
+            We're not asking for your life story, mother's maiden name
+            and the blood type of your first hamster.
+          </p>
+
+          <p class="create-account-note">
+            Just the stuff actually needed to run your account.
+          </p>
+
+        </div>
+
+
+        <!--
+          REGISTRATION FORM
+
+          This will also be connected to the secure authentication
+          provider later.
+        -->
+
+        <form class="create-account-form">
+
+          <div class="form-field">
+
+            <label for="first-name">
+              First name
+            </label>
+
+            <input
+              type="text"
+              id="first-name"
+              name="firstName"
+              autocomplete="given-name"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-field">
+
+            <label for="register-email">
+              Email address
+            </label>
+
+            <input
+              type="email"
+              id="register-email"
+              name="email"
+              autocomplete="email"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-field">
+
+            <label for="register-password">
+              Create a password
+            </label>
+
+            <input
+              type="password"
+              id="register-password"
+              name="password"
+              autocomplete="new-password"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-field">
+
+            <label for="confirm-password">
+              Confirm password
+            </label>
+
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirmPassword"
+              autocomplete="new-password"
+              required
+            >
+
+          </div>
+
+
+          <label class="account-terms">
+
+            <input
+              type="checkbox"
+              name="terms"
+              required
+            >
+
+            <span>
+              I agree to the
+              <a href="legal/terms.html">Terms</a>
+              and
+              <a href="legal/privacy.html">Privacy Policy</a>.
+            </span>
+
+          </label>
+
+
+          <button
+            type="submit"
+            class="button button-primary"
+          >
+            Create my account →
+          </button>
+
+        </form>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MEMBER AREA PREVIEW
+         ===================================================== -->
+
+    <section class="member-preview">
+
+      <div class="section-shell">
+
+        <div class="section-heading centered">
+
+          <p class="eyebrow">
+            Once you're in
+          </p>
+
+          <h2>
+            Welcome,
+            <span class="member-name">[your name]</span>.
+          </h2>
+
+          <p class="member-preview-script">
+            Right then. What are we sorting out today?
+          </p>
+
+        </div>
+
+
+        <div class="member-preview-grid">
+
+
+          <article class="member-preview-card">
+
+            <span class="member-card-number">
+              01
+            </span>
+
+            <h3>
+              My Resources
+            </h3>
+
+            <p>
+              Your purchased downloads, workbooks and toolkits.
+            </p>
+
+            <a href="#" class="text-link">
+              See my stuff →
+            </a>
+
+          </article>
+
+
+          <article class="member-preview-card">
+
+            <span class="member-card-number">
+              02
+            </span>
+
+            <h3>
+              Saved Stuff
+            </h3>
+
+            <p>
+              Keep useful resources somewhere sensible instead of
+              relying on seventeen open browser tabs.
+            </p>
+
+            <a href="#" class="text-link">
+              Saved resources →
+            </a>
+
+          </article>
+
+
+          <article class="member-preview-card">
+
+            <span class="member-card-number">
+              03
+            </span>
+
+            <h3>
+              Coaching Corner
+            </h3>
+
+            <p>
+              If you're working with me, this is where your relevant
+              coaching resources can live.
+            </p>
+
+            <a href="#" class="text-link">
+              My coaching stuff →
+            </a>
+
+          </article>
+
+
+          <article class="member-preview-card">
+
+            <span class="member-card-number">
+              04
+            </span>
+
+            <h3>
+              Downloads & Orders
+            </h3>
+
+            <p>
+              Bought something before?
+              Find the bastard again.
+            </p>
+
+            <a href="#" class="text-link">
+              View history →
+            </a>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MEMBER DASHBOARD IDEA
+         ===================================================== -->
+
+    <section class="member-dashboard-preview">
+
+      <div class="section-shell member-dashboard-shell">
+
+        <div class="dashboard-welcome">
+
+          <span class="dashboard-kicker">
+            YOUR SPACE
+          </span>
+
+          <h2>
+            Welcome,
+            <span id="dashboard-first-name">[your name]</span>
+            🦩
+          </h2>
+
+          <p>
+            You made it in. That's today's first administrative
+            victory sorted.
+          </p>
+
+        </div>
+
+
+        <div class="dashboard-scribbles" aria-hidden="true">
+
+          <span>
+            look at you remembering passwords and shit ↑
+          </span>
+
+          <span>
+            one thing at a time.<br>
+            still counts.
+          </span>
+
+          <span>
+            you've got this.<br>
+            probably.<br>
+            let's find out 😂
+          </span>
+
+          <span>
+            no inspirational mountain quotes here.
+          </span>
+
+        </div>
+
+
+        <div class="dashboard-quick-links">
+
+          <a href="resources.html">
+            Browse The Rise Hub →
+          </a>
+
+          <a href="work-with-me.html">
+            Coaching →
+          </a>
+
+          <a href="contact.html">
+            Ask Shelley →
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ACCOUNT PRIVACY NOTE
+         ===================================================== -->
+
+    <section class="account-privacy">
+
+      <div class="section-shell narrow centered">
+
+        <p class="eyebrow">
+          Your information
+        </p>
+
+        <h2>
+          Your account is yours.
+          <span>Not marketing confetti.</span>
+        </h2>
+
+        <p>
+          We'll only collect and use the information needed to provide
+          your account, purchases, resources and any services you've
+          chosen to use.
+        </p>
+
+        <p>
+          Full details will be available in the FlamingoRise Privacy
+          Policy.
+        </p>
+
+        <a href="legal/privacy.html" class="text-link">
+          Read the privacy stuff →
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer class="site-footer">
+
+    <div class="section-shell footer-grid">
+
+      <div class="footer-brand">
+
+        <img
+          src="images/logo-primary.png"
+          alt="FlamingoRise"
+        >
+
+        <p>
+          Rise. Heal. Soar.
+        </p>
+
+        <span>
+          Brutally honest support for real life.
+        </span>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h3>Explore</h3>
+
+        <a href="index.html">Home</a>
+        <a href="about.html">My Journey</a>
+        <a href="work-with-me.html">Work With Me</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="resources.html">The Rise Hub</a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h3>More</h3>
+
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h3>
+          The boring but necessary bit
+        </h3>
+
+        <a href="legal/privacy.html">Privacy</a>
+        <a href="legal/terms.html">Terms</a>
+        <a href="legal/disclaimer.html">Disclaimer</a>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <p>
+        © <span id="year"></span> FlamingoRise.
+        All rights reserved.
+      </p>
+
+      <p>
+        Made with truth, chaos and considerably fewer beige boxes.
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
