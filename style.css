@@ -237,7 +237,7 @@ h2 span {
       rgba(10, 8, 9, 0.58) 34%,
       rgba(10, 8, 9, 0.10) 72%
     ),
-    url("../images/hero-flamingo.webp") center center / cover no-repeat;
+   url("images/hero-flamingo.webp") center center / cover no-repeat;
   padding: 160px 6vw 90px;
   color: var(--white);
 }
@@ -439,7 +439,7 @@ h2 span {
   left: -5%;
   width: 110%;
   height: 42px;
-  background: url("../images/torn-paper-divider.png") center / cover no-repeat;
+  background: url("images/torn-paper-divider.png") center / cover no-repeat;
 }
 
 .rebel-break::before {
