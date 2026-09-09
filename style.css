@@ -27,7 +27,7 @@ html {
 
 body {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
+ font-family: "Montserrat", sans-serif;
   background: var(--cream);
   color: var(--charcoal);
   line-height: 1.6;
@@ -77,6 +77,133 @@ h2,
 h3,
 p {
   margin-top: 0;
+}
+/* =========================
+   FLAMINGORISE TYPOGRAPHY
+   ========================= */
+
+/* Main readable headings */
+h1,
+h2,
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+}
+
+/* Navigation, buttons, labels */
+.main-nav,
+.button,
+.eyebrow,
+.pathway-label,
+.vb-label,
+.hub-tags,
+.footer-column h3 {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Hero: strong statement + soft rebellion */
+.hero h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.045em;
+}
+
+.hero h1 span {
+  font-family: "Sevillana", cursive;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 1.15em;
+  line-height: 0.9;
+}
+
+.hero h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+.hero h2 span {
+  font-family: "Sevillana", cursive;
+  font-weight: 400;
+  font-size: 1.2em;
+}
+
+/* Big personality moments */
+.rhs-heading h2,
+.rhs-card h3,
+.pathway-content h3,
+.final-cta h2 {
+  font-family: "Henny Penny", cursive;
+  font-weight: 400;
+}
+
+/* Welcome: soft contrast */
+.welcome-section h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+}
+
+.welcome-section h2 span {
+  font-family: "Sevillana", cursive;
+  font-weight: 400;
+  text-transform: none;
+}
+
+/* Pathway heading gets a little personality */
+.section-heading h2 span {
+  font-family: "Sevillana", cursive;
+  font-weight: 400;
+  display: block;
+  margin-top: 8px;
+}
+
+/* About */
+.about-copy h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+}
+
+.about-copy h2 span {
+  font-family: "Sevillana", cursive;
+  font-weight: 400;
+  display: block;
+  font-size: 1.1em;
+}
+
+/* Rise Hub */
+.rise-hub-copy h3 {
+  font-family: "Henny Penny", cursive;
+  font-weight: 400;
+}
+
+/* Soft section */
+.soft-section h2 span {
+  font-family: "Sevillana", cursive;
+  font-weight: 400;
+  display: block;
+  font-size: 1.15em;
+}
+
+/* Scribbled human notes */
+.rebel-quote-copy span {
+  font-family: "Crafty Girls", cursive;
+  font-style: normal;
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  transform: rotate(-2deg);
+}
+
+/* Brutal quote */
+.rebel-quote-copy p {
+  font-family: "Mystery Quest", cursive;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* Final statement */
+.final-cta h3 {
+  font-family: "Sevillana", cursive;
+  font-weight: 400;
+  line-height: 1.05;
 }
 
 h1,
