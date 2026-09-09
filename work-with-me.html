@@ -1,26 +1,942 @@
-const menuToggle = document.querySelector(".menu-toggle");
-const mainNav = document.querySelector(".main-nav");
+<!DOCTYPE html>
+<html lang="en">
 
-if (menuToggle && mainNav) {
-  menuToggle.addEventListener("click", () => {
-    const isOpen = mainNav.classList.toggle("active");
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    menuToggle.setAttribute(
-      "aria-expanded",
-      isOpen ? "true" : "false"
-    );
-  });
+  <title>Work With Me | FlamingoRise</title>
 
-  mainNav.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      mainNav.classList.remove("active");
-      menuToggle.setAttribute("aria-expanded", "false");
-    });
-  });
-}
+  <meta
+    name="description"
+    content="No scripts, no motivational wallpaper and no copy-paste life plans. Honest, individual support for figuring out what the hell comes next."
+  >
 
-const year = document.getElementById("year");
+  <link rel="stylesheet" href="style.css">
+</head>
 
-if (year) {
-  year.textContent = new Date().getFullYear();
-}
+<body>
+
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
+
+  <header class="site-header">
+
+    <div class="nav-container">
+
+      <a href="index.html" class="brand">
+        <img src="images/logo.webp" alt="FlamingoRise">
+      </a>
+
+      <button
+        class="menu-toggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="main-nav">
+
+        <a href="index.html">Home</a>
+
+        <a href="about.html">
+          My Journey
+        </a>
+
+        <a href="work-with-me.html" class="active-link">
+          Work With Me
+        </a>
+
+        <a href="pricing.html">
+          Pricing
+        </a>
+
+        <a href="resources.html">
+          The Rise Hub
+        </a>
+
+        <a href="blog.html">
+          Stories
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+        <a href="login.html" class="nav-login">
+          Login
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="wwm-hero">
+
+      <div class="wwm-hero-scribble">
+        actual conversations. shocking, I know.
+      </div>
+
+      <div class="section-shell wwm-hero-grid">
+
+        <div class="wwm-hero-copy">
+
+          <p class="eyebrow">
+            Work with me
+          </p>
+
+          <h1>
+            You don't need another person
+            <span>nodding at you.</span>
+          </h1>
+
+          <p class="wwm-hero-script">
+            You need someone who'll actually say the thing.
+          </p>
+
+          <div class="wwm-hero-text">
+
+            <p>
+              No scripts. No motivational wallpaper. No pretending
+              everything can be fixed with a morning routine and a
+              fucking gratitude journal.
+            </p>
+
+            <p>
+              Sometimes life goes spectacularly off-plan.
+              Sometimes you know something needs to change but
+              haven't got a clue what.
+            </p>
+
+            <p>
+              Sometimes you know exactly what needs to change and
+              you're still not bloody doing it.
+            </p>
+
+          </div>
+
+          <p class="wwm-hero-ending">
+            That's where I come in.
+          </p>
+
+          <a href="#who-for" class="button button-primary">
+            Right. Keep going.
+          </a>
+
+        </div>
+
+
+        <div class="wwm-hero-art">
+
+          <img
+            src="images/rebel-circle.png"
+            alt=""
+            class="wwm-circle"
+          >
+
+          <img
+            src="images/logo-primary.png"
+            alt="FlamingoRise"
+            class="wwm-diva"
+          >
+
+          <span class="wwm-art-note">
+            no beige bullshit →
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         WHO THIS IS FOR
+         ===================================================== -->
+
+    <section class="wwm-who" id="who-for">
+
+      <div class="section-shell">
+
+        <div class="section-heading">
+
+          <p class="eyebrow">
+            You might be in the right place if...
+          </p>
+
+          <h2>
+            You're stuck.
+            <span>And you're bored of hearing yourself say it.</span>
+          </h2>
+
+        </div>
+
+
+        <div class="wwm-who-grid">
+
+          <article class="wwm-who-card">
+            <span>01</span>
+
+            <p>
+              Something has changed and the old version of your life
+              doesn't fit anymore.
+            </p>
+          </article>
+
+
+          <article class="wwm-who-card">
+            <span>02</span>
+
+            <p>
+              You've survived the massive thing — and now everyone's
+              fucked off assuming you're fine.
+            </p>
+          </article>
+
+
+          <article class="wwm-who-card">
+            <span>03</span>
+
+            <p>
+              You know what you <em>should</em> do.
+              That's not actually the problem.
+            </p>
+          </article>
+
+
+          <article class="wwm-who-card">
+            <span>04</span>
+
+            <p>
+              You're rebuilding after life decided to chuck the entire
+              Monopoly board across the room.
+            </p>
+          </article>
+
+
+          <article class="wwm-who-card">
+            <span>05</span>
+
+            <p>
+              Nothing particularly dramatic happened.
+              You just know something isn't right anymore.
+            </p>
+          </article>
+
+
+          <article class="wwm-who-card wwm-who-card-feature">
+
+            <span>06</span>
+
+            <p>
+              Or maybe you just woke up one day and thought:
+            </p>
+
+            <strong>
+              “Is this seriously it?”
+            </strong>
+
+            <small>
+              Also valid.
+            </small>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         WHAT WORKING WITH ME IS LIKE
+         ===================================================== -->
+
+    <section class="wwm-reality">
+
+      <div class="section-shell">
+
+        <div class="section-heading centered">
+
+          <p class="eyebrow">
+            What it's actually like
+          </p>
+
+          <h2>
+            I'm not here to
+            <span>perform wisdom at you.</span>
+          </h2>
+
+        </div>
+
+
+        <div class="wwm-reality-grid">
+
+          <article>
+
+            <div class="wwm-number">
+              01
+            </div>
+
+            <h3>
+              I'll listen.
+            </h3>
+
+            <p>
+              Properly.
+            </p>
+
+            <p>
+              But I won't just sit there nodding beautifully while
+              you talk yourself in circles.
+            </p>
+
+          </article>
+
+
+          <article>
+
+            <div class="wwm-number">
+              02
+            </div>
+
+            <h3>
+              I'll challenge you.
+            </h3>
+
+            <p>
+              Including when the obstacle standing in your way
+              appears to be...
+            </p>
+
+            <p class="wwm-oops">
+              unfortunately... you.
+            </p>
+
+          </article>
+
+
+          <article>
+
+            <div class="wwm-number">
+              03
+            </div>
+
+            <h3>
+              I won't tell you how to live.
+            </h3>
+
+            <p>
+              It's your bloody life.
+            </p>
+
+            <p>
+              My job is to help you see what's actually going on,
+              pull apart the noise and work out what
+              <strong>you</strong> want to do next.
+            </p>
+
+          </article>
+
+
+          <article>
+
+            <div class="wwm-number">
+              04
+            </div>
+
+            <h3>
+              We're allowed to change the plan.
+            </h3>
+
+            <p>
+              Something isn't working?
+            </p>
+
+            <p class="wwm-oops">
+              We change it.
+            </p>
+
+            <p>
+              Revolutionary concept.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         NOPE
+         ===================================================== -->
+
+    <section class="wwm-nope">
+
+      <img
+        src="images/pink-brush-stroke.png"
+        alt=""
+        class="wwm-nope-brush"
+      >
+
+      <div class="section-shell centered wwm-nope-inner">
+
+        <p class="wwm-nope-small">
+          For the avoidance of doubt...
+        </p>
+
+        <h2>
+          No toxic positivity.
+          <span>No copy-paste life plans.</span>
+          No fake guru bullshit.
+        </h2>
+
+        <p class="wwm-nope-script">
+          Sometimes shit just happens.
+        </p>
+
+        <p class="wwm-nope-ending">
+          What matters is what you do with the bit that comes afterwards.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         WHAT DO WE ACTUALLY DO?
+         ===================================================== -->
+
+    <section class="wwm-do">
+
+      <div class="section-shell wwm-do-grid">
+
+        <div class="wwm-do-heading">
+
+          <p class="eyebrow">
+            So what do we actually do?
+          </p>
+
+          <h2>
+            We work out what the hell
+            <span>is actually going on.</span>
+          </h2>
+
+          <p>
+            Then we figure out what comes next.
+          </p>
+
+        </div>
+
+
+        <div class="wwm-do-list">
+
+          <div class="wwm-do-item">
+
+            <strong>
+              Untangle the noise.
+            </strong>
+
+            <span>
+              Because everything feels impossible when seventeen
+              problems are pretending to be one.
+            </span>
+
+          </div>
+
+
+          <div class="wwm-do-item">
+
+            <strong>
+              Question the obvious answer.
+            </strong>
+
+            <span>
+              Especially if the obvious answer came from everybody
+              except you.
+            </span>
+
+          </div>
+
+
+          <div class="wwm-do-item">
+
+            <strong>
+              Work out what you actually want.
+            </strong>
+
+            <span>
+              Not what looks sensible. Not what keeps everyone else
+              comfortable.
+            </span>
+
+          </div>
+
+
+          <div class="wwm-do-item">
+
+            <strong>
+              Make something usable.
+            </strong>
+
+            <span>
+              Insight is lovely. Eventually we need to do something
+              with the bastard.
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         WAYS TO WORK — FINAL LAUNCH OFFERS
+         ===================================================== -->
+
+    <section class="wwm-ways">
+
+      <div class="section-shell">
+
+        <div class="section-heading centered">
+
+          <p class="eyebrow">
+            Pick your level of chaos
+          </p>
+
+          <h2>
+            How much shit
+            <span>are we sorting out?</span>
+          </h2>
+
+          <p>
+            You don't have to commit your entire future to a coaching
+            programme just because one bit of life has gone wonky.
+          </p>
+
+        </div>
+
+
+        <div class="wwm-ways-grid">
+
+          <!-- UNFUCK ONE THING -->
+
+          <article class="wwm-way-card">
+
+            <span class="wwm-way-label">
+              One-off session
+            </span>
+
+            <h3>
+              Unfuck One Thing
+            </h3>
+
+            <p class="wwm-way-tagline">
+              One problem. One session. Let's sort the bastard.
+            </p>
+
+            <div class="wwm-mini-details">
+
+              <span>
+                90 minutes
+              </span>
+
+              <span>
+                1:1 online
+              </span>
+
+              <span>
+                Written recap
+              </span>
+
+            </div>
+
+            <div class="wwm-mini-price">
+              £65
+            </div>
+
+            <p>
+              For when there's one particular thing doing your head in
+              and you want some proper space to untangle it without
+              signing yourself up for a whole programme.
+            </p>
+
+            <div class="wwm-way-note">
+              get in. untangle it. get out. →
+            </div>
+
+          </article>
+
+
+          <!-- SORT SOME SHIT OUT -->
+
+          <article class="wwm-way-card wwm-way-card-main">
+
+            <span class="wwm-way-label">
+              Short support
+            </span>
+
+            <div class="wwm-popular">
+              good place to start
+            </div>
+
+            <h3>
+              Sort Some Shit Out
+            </h3>
+
+            <p class="wwm-way-tagline">
+              Because sometimes one conversation isn't going to cut it.
+            </p>
+
+            <div class="wwm-mini-details">
+
+              <span>
+                3 × 60 minutes
+              </span>
+
+              <span>
+                Up to 6 weeks
+              </span>
+
+              <span>
+                Rise Hub resources
+              </span>
+
+            </div>
+
+            <div class="wwm-mini-price">
+              £165
+            </div>
+
+            <p>
+              Enough time to properly get underneath what's going on,
+              try some things, come back, change the plan if necessary
+              and actually make some bloody progress.
+            </p>
+
+            <div class="wwm-way-note">
+              a bit more room to breathe ↑
+            </div>
+
+          </article>
+
+
+          <!-- BURN THE OLD MAP -->
+
+          <article class="wwm-way-card">
+
+            <span class="wwm-way-label">
+              Deeper support
+            </span>
+
+            <h3>
+              Burn the Old Map
+            </h3>
+
+            <p class="wwm-way-tagline">
+              You're not tweaking the plan. You're making a new one.
+            </p>
+
+            <div class="wwm-mini-details">
+
+              <span>
+                6 × 60 minutes
+              </span>
+
+              <span>
+                Up to 12 weeks
+              </span>
+
+              <span>
+                Resource bundle
+              </span>
+
+              <span>
+                Between-session check-ins
+              </span>
+
+            </div>
+
+            <div class="wwm-mini-price">
+              £295
+            </div>
+
+            <p>
+              For the bigger stuff. Rebuilding, changing direction,
+              figuring out who the hell you are now or creating a
+              version of life that actually fits.
+            </p>
+
+            <div class="wwm-way-note">
+              we're going in 😂
+            </div>
+
+          </article>
+
+        </div>
+
+
+        <!-- FREE FIT CALL -->
+
+        <div class="wwm-fit-call">
+
+          <div>
+
+            <span class="wwm-fit-label">
+              Not sure?
+            </span>
+
+            <h3>
+              Let's find out if we even like each other first.
+            </h3>
+
+            <p>
+              Book a free 15-minute fit call. Tell me roughly what's
+              going on, ask whatever you need to ask and we'll work
+              out whether I'm actually the right person for you.
+            </p>
+
+            <p class="wwm-fit-warning">
+              No coaching. No sales ambush. If I'm not the right fit,
+              I'll tell you.
+            </p>
+
+          </div>
+
+          <a href="contact.html" class="button button-dark">
+            Book a free fit call
+          </a>
+
+        </div>
+
+
+        <div class="wwm-pricing-action">
+
+          <a href="pricing.html" class="button button-primary">
+            See full packages & pricing
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CHOICE
+         ===================================================== -->
+
+    <section class="wwm-choice">
+
+      <div class="section-shell narrow centered">
+
+        <p class="eyebrow">
+          One important thing
+        </p>
+
+        <h2>
+          You are allowed to
+          <span>choose differently.</span>
+        </h2>
+
+        <p>
+          You can change your mind.
+          You can decide something isn't working.
+          You can outgrow the plan.
+          You can want something completely different from what you
+          wanted six months ago.
+        </p>
+
+        <p class="wwm-choice-script">
+          That's not failure. That's new information.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FINAL CTA
+         ===================================================== -->
+
+    <section class="wwm-final">
+
+      <div class="section-shell narrow centered">
+
+        <p class="eyebrow">
+          Still here?
+        </p>
+
+        <h2>
+          Okay.
+          <span>Show me the damage.</span>
+        </h2>
+
+        <p>
+          Have a look at the full package details and choose the one
+          that makes sense for where you are now.
+        </p>
+
+        <div class="final-actions">
+
+          <a href="pricing.html" class="button button-primary">
+            Packages & pricing
+          </a>
+
+          <a href="contact.html" class="button button-light">
+            Ask me something
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer class="site-footer">
+
+    <div class="section-shell footer-grid">
+
+      <div class="footer-brand">
+
+        <img
+          src="images/logo-primary.png"
+          alt="FlamingoRise"
+        >
+
+        <p>
+          Rise. Heal. Soar.
+        </p>
+
+        <span>
+          Brutally honest support for real life.
+        </span>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h3>
+          Explore
+        </h3>
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="about.html">
+          My Journey
+        </a>
+
+        <a href="work-with-me.html">
+          Work With Me
+        </a>
+
+        <a href="pricing.html">
+          Pricing
+        </a>
+
+        <a href="resources.html">
+          The Rise Hub
+        </a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h3>
+          More
+        </h3>
+
+        <a href="blog.html">
+          Stories
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+        <a href="login.html">
+          Login
+        </a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h3>
+          The boring but necessary bit
+        </h3>
+
+        <a href="legal/privacy.html">
+          Privacy
+        </a>
+
+        <a href="legal/terms.html">
+          Terms
+        </a>
+
+        <a href="legal/disclaimer.html">
+          Disclaimer
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <p>
+        © <span id="year"></span> FlamingoRise.
+        All rights reserved.
+      </p>
+
+      <p>
+        Made with truth, chaos and considerably fewer beige boxes.
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
