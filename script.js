@@ -196,23 +196,16 @@ if (logoutButton) {
 
       await Clerk.signOut();
 
-      window.location.reload();
+     window.location.reload();
 
     }
   );
 
 }
-      
 
-        quickLinks.appendChild(
-          logoutButton
-        );
+}
 
-      }
-
-    }
-
-    else {
+else {
        
        const memberNavLink =
   document.getElementById("member-nav-link");
