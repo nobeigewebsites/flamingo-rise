@@ -705,30 +705,25 @@ window.addEventListener(
           error
         } =
           await supabaseClient
-            .functions
-            .invoke(
-              "secure-resource-download",
-              {
-                body: {
-                  resourceId:
-                    resource.id
-                }
-              }
+            .storage
+            .from("member-resources")
+            .createSignedUrl(
+              resource.storage_path,
+              60
             );
 
 
         if (
           error ||
-          !data?.url
+          !data?.signedUrl
         ) {
 
           console.error(
             "Secure download error:",
-            error || data
+            error
           );
 
           alert(
-            data?.error ||
             "Could not open this resource."
           );
 
@@ -737,12 +732,14 @@ window.addEventListener(
 
 
         window.open(
-          data.url,
+          data.signedUrl,
           "_blank",
           "noopener,noreferrer"
         );
 
-      } catch (error) {
+      }
+
+      catch (error) {
 
         console.error(
           "Download failed:",
@@ -753,7 +750,9 @@ window.addEventListener(
           "Something went wrong opening the resource."
         );
 
-      } finally {
+      }
+
+      finally {
 
         downloadButton.disabled =
           false;
@@ -768,22 +767,10 @@ window.addEventListener(
 
 
   article.appendChild(
-  downloadButton
-);
+    downloadButton
+  );
+
 }
-
-
-          memberResourcesList.appendChild(
-            article
-          );
-
-        }
-
-      );
-
-    }
-
-
     /* =========================================================
        MEMBER RESOURCE PANEL TOGGLE
        ========================================================= */
