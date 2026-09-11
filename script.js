@@ -229,6 +229,13 @@ document
     }
 
     else {
+       
+       const memberNavLink =
+  document.getElementById("member-nav-link");
+
+if (memberNavLink) {
+  memberNavLink.textContent = "Login";
+}
 
       /* Show login/signup */
 
