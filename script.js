@@ -767,9 +767,9 @@ window.addEventListener(
   );
 
 
-  item.appendChild(
-    downloadButton
-  );
+  article.appendChild(
+  downloadButton
+);
 }
 
 
