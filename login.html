@@ -462,19 +462,29 @@
               01
             </span>
 
-            <h3>
-              My Resources
-            </h3>
+           <article class="member-preview-card">
 
-            <p>
-              Your purchased downloads, workbooks and toolkits.
-            </p>
+  <span class="member-card-number">
+    01
+  </span>
 
-            <a href="#" class="text-link">
-              See my stuff →
-            </a>
+  <h3>
+    My Resources
+  </h3>
 
-          </article>
+  <p id="member-resource-summary">
+    Loading your stuff...
+  </p>
+
+  <button
+    type="button"
+    class="text-link member-resource-toggle"
+    id="member-resource-toggle"
+  >
+    See my stuff →
+  </button>
+
+</article>
 
 
           <article class="member-preview-card">
@@ -544,6 +554,35 @@
 
 
         </div>
+
+        <div
+  class="member-resources-panel"
+  id="member-resources-panel"
+  hidden
+>
+
+  <div class="member-resources-heading">
+
+    <p class="eyebrow">
+      Your library
+    </p>
+
+    <h2>
+      The stuff that's actually yours.
+    </h2>
+
+    <p>
+      No digging through emails. No wondering where the bastard went.
+    </p>
+
+  </div>
+
+  <div
+    class="member-resources-list"
+    id="member-resources-list"
+  ></div>
+
+</div>
 
       </div>
 
