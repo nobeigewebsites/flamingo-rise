@@ -116,6 +116,54 @@ window.addEventListener("load", async () => {
 
   }
 
+     /* ---------- SYNC MEMBER PROFILE TO SUPABASE ---------- */
+
+  async function syncMemberProfile() {
+
+    if (!Clerk.user) {
+      return;
+    }
+
+    const email =
+      Clerk.user.primaryEmailAddress
+        ?.emailAddress || null;
+
+    const firstName =
+      Clerk.user.firstName || null;
+
+    const { error } =
+      await supabaseClient
+        .from("member_profiles")
+        .upsert(
+          {
+            clerk_user_id: Clerk.user.id,
+            email: email,
+            first_name: firstName,
+            updated_at:
+              new Date().toISOString()
+          },
+          {
+            onConflict: "clerk_user_id"
+          }
+        );
+
+    if (error) {
+
+      console.error(
+        "Supabase profile sync error:",
+        error
+      );
+
+    } else {
+
+      console.log(
+        "Supabase member profile synced."
+      );
+
+    }
+
+  }
+
 
   /* =========================================================
      SHOW CORRECT VIEW
@@ -124,6 +172,8 @@ window.addEventListener("load", async () => {
   function updateMemberView() {
 
     if (Clerk.user) {
+
+             syncMemberProfile();
 
       /* Hide login/signup */
 
