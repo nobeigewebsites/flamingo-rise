@@ -74,7 +74,7 @@ window.addEventListener("load", async () => {
     document.querySelector(".member-preview");
 
   const memberDashboard =
-    document.querySelector(".member-dashboard-preview");
+  document.querySelector(".member-account-section");
 
 
   /* ---------- HELPER: AUTH MESSAGE ---------- */
