@@ -179,6 +179,31 @@ window.addEventListener(
       );
 
 
+    /* ---------------------------------------------------------
+       MEMBER RESOURCE ELEMENTS
+       --------------------------------------------------------- */
+
+    const memberResourceSummary =
+      document.getElementById(
+        "member-resource-summary"
+      );
+
+    const memberResourceToggle =
+      document.getElementById(
+        "member-resource-toggle"
+      );
+
+    const memberResourcesPanel =
+      document.getElementById(
+        "member-resources-panel"
+      );
+
+    const memberResourcesList =
+      document.getElementById(
+        "member-resources-list"
+      );
+
+
     /* =========================================================
        AUTH MESSAGE HELPER
        ========================================================= */
@@ -375,7 +400,379 @@ window.addEventListener(
       );
 
 
-      return data;
+      return data || [];
+
+    }
+
+
+    /* =========================================================
+       NORMALISE RESOURCE
+       ========================================================= */
+
+    function getResourceFromEntitlement(
+      entitlement
+    ) {
+
+      if (!entitlement) {
+        return null;
+      }
+
+
+      const resource =
+        entitlement.resources;
+
+
+      if (
+        Array.isArray(resource)
+      ) {
+
+        return resource[0] || null;
+
+      }
+
+
+      return resource || null;
+
+    }
+
+
+    /* =========================================================
+       RENDER MEMBER RESOURCES
+       ========================================================= */
+
+    function renderMemberResources(
+      entitlements
+    ) {
+
+      if (
+        !memberResourceSummary ||
+        !memberResourcesList
+      ) {
+        return;
+      }
+
+
+      const resources =
+        entitlements
+
+          .map(
+            getResourceFromEntitlement
+          )
+
+          .filter(
+            resource =>
+              resource &&
+              resource.is_active !== false
+          );
+
+
+      /* ---------------------------------------------------------
+         NOTHING OWNED
+         --------------------------------------------------------- */
+
+      if (
+        resources.length === 0
+      ) {
+
+        memberResourceSummary.textContent =
+          "Nothing here yet — your resources will appear here when you get them.";
+
+        memberResourcesList.replaceChildren();
+
+
+        if (memberResourceToggle) {
+
+          memberResourceToggle.hidden =
+            true;
+
+        }
+
+
+        if (memberResourcesPanel) {
+
+          memberResourcesPanel.hidden =
+            true;
+
+        }
+
+
+        return;
+
+      }
+
+
+      /* ---------------------------------------------------------
+         RESOURCE COUNT
+         --------------------------------------------------------- */
+
+      if (
+        resources.length === 1
+      ) {
+
+        memberResourceSummary.textContent =
+          "You've got 1 resource waiting for you.";
+
+      }
+
+      else {
+
+        memberResourceSummary.textContent =
+          `You've got ${resources.length} resources waiting for you.`;
+
+      }
+
+
+      if (memberResourceToggle) {
+
+        memberResourceToggle.hidden =
+          false;
+
+      }
+
+
+      /* ---------------------------------------------------------
+         CLEAR OLD CONTENT
+         --------------------------------------------------------- */
+
+      memberResourcesList.replaceChildren();
+
+
+      /* ---------------------------------------------------------
+         BUILD RESOURCE CARDS
+         --------------------------------------------------------- */
+
+      resources.forEach(
+        resource => {
+
+
+          const article =
+            document.createElement(
+              "article"
+            );
+
+          article.className =
+            "member-resource-item";
+
+
+          /* TYPE */
+
+          if (resource.resource_type) {
+
+            const type =
+              document.createElement(
+                "p"
+              );
+
+            type.className =
+              "member-resource-type";
+
+            type.textContent =
+              resource.resource_type;
+
+            article.appendChild(
+              type
+            );
+
+          }
+
+
+          /* TITLE */
+
+          const title =
+            document.createElement(
+              "h3"
+            );
+
+          title.textContent =
+            resource.title ||
+            "FlamingoRise Resource";
+
+          article.appendChild(
+            title
+          );
+
+
+          /* DESCRIPTION */
+
+          if (resource.description) {
+
+            const description =
+              document.createElement(
+                "p"
+              );
+
+            description.className =
+              "member-resource-description";
+
+            description.textContent =
+              resource.description;
+
+            article.appendChild(
+              description
+            );
+
+          }
+
+
+          /* STATUS */
+
+          const status =
+            document.createElement(
+              "p"
+            );
+
+          status.className =
+            "member-resource-status";
+
+          status.textContent =
+            resource.is_free
+              ? "Included in your library"
+              : "Purchased resource";
+
+          article.appendChild(
+            status
+          );
+
+
+          /* -----------------------------------------------------
+             EXTERNAL / PAYHIP LINK
+             ----------------------------------------------------- */
+
+          if (resource.payhip_url) {
+
+            const link =
+              document.createElement(
+                "a"
+              );
+
+            link.href =
+              resource.payhip_url;
+
+            link.target =
+              "_blank";
+
+            link.rel =
+              "noopener noreferrer";
+
+            link.className =
+              "button button-primary";
+
+            link.textContent =
+              "Open resource →";
+
+            article.appendChild(
+              link
+            );
+
+          }
+
+
+          /* -----------------------------------------------------
+             PRIVATE STORAGE PLACEHOLDER
+             ----------------------------------------------------- */
+
+          else if (
+            resource.storage_path
+          ) {
+
+            const privateNote =
+              document.createElement(
+                "p"
+              );
+
+            privateNote.className =
+              "member-resource-private-note";
+
+            privateNote.textContent =
+              "Secure download available.";
+
+            article.appendChild(
+              privateNote
+            );
+
+          }
+
+
+          /* -----------------------------------------------------
+             TEST / NO FILE ATTACHED YET
+             ----------------------------------------------------- */
+
+          else {
+
+            const testNote =
+              document.createElement(
+                "p"
+              );
+
+            testNote.className =
+              "member-resource-private-note";
+
+            testNote.textContent =
+              "Access confirmed — this resource is attached to your account.";
+
+            article.appendChild(
+              testNote
+            );
+
+          }
+
+
+          memberResourcesList.appendChild(
+            article
+          );
+
+        }
+
+      );
+
+    }
+
+
+    /* =========================================================
+       MEMBER RESOURCE PANEL TOGGLE
+       ========================================================= */
+
+    if (
+      memberResourceToggle &&
+      memberResourcesPanel
+    ) {
+
+      memberResourceToggle.addEventListener(
+        "click",
+        () => {
+
+
+          const opening =
+            memberResourcesPanel.hidden;
+
+
+          memberResourcesPanel.hidden =
+            !opening;
+
+
+          memberResourceToggle.textContent =
+            opening
+              ? "Hide my stuff ↑"
+              : "See my stuff →";
+
+
+          if (opening) {
+
+            memberResourcesPanel
+              .scrollIntoView({
+
+                behavior:
+                  "smooth",
+
+                block:
+                  "start"
+
+              });
+
+          }
+
+        }
+      );
 
     }
 
@@ -401,7 +798,15 @@ window.addEventListener(
 
         /* Load owned resources */
 
-        await loadMemberResources();
+        const entitlements =
+          await loadMemberResources();
+
+
+        /* Render owned resources */
+
+        renderMemberResources(
+          entitlements
+        );
 
 
         /* Hide login */
@@ -539,6 +944,14 @@ window.addEventListener(
 
         memberDashboard.style.display =
           "none";
+
+      }
+
+
+      if (memberResourcesPanel) {
+
+        memberResourcesPanel.hidden =
+          true;
 
       }
 
