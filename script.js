@@ -185,38 +185,23 @@ document
 
       /* Add logout button */
 
-      const quickLinks =
-        document.querySelector(
-          ".dashboard-quick-links"
-        );
+      const logoutButton =
+  document.getElementById("logout-button");
 
-      if (
-        quickLinks &&
-        !document.getElementById("logout-button")
-      ) {
+if (logoutButton) {
 
-        const logoutButton =
-          document.createElement("button");
+  logoutButton.addEventListener(
+    "click",
+    async () => {
 
-        logoutButton.id =
-          "logout-button";
+      await Clerk.signOut();
 
-        logoutButton.type =
-          "button";
+      window.location.reload();
 
-        logoutButton.textContent =
-          "Log out →";
+    }
+  );
 
-
-        logoutButton.addEventListener(
-          "click",
-          async () => {
-
-            await Clerk.signOut();
-
-            window.location.reload();
-
-          }
+}
         );
 
 
