@@ -8,6 +8,43 @@
   <meta
   name="referrer"
   content="strict-origin-when-cross-origin"
+     >
+
+    <meta
+  http-equiv="Content-Security-Policy"
+  content="
+    default-src 'self';
+    script-src
+      'self'
+      https://hardy-bream-6185.clerk.accounts.dev
+      https://cdn.jsdelivr.net;
+    connect-src
+      'self'
+      https://hardy-bream-6185.clerk.accounts.dev
+      https://pfksqkmbzfngznzejuxt.supabase.co
+      wss://pfksqkmbzfngznzejuxt.supabase.co;
+    img-src
+      'self'
+      data:
+      blob:
+      https://img.clerk.com
+      https://images.clerk.dev;
+    style-src
+      'self'
+      'unsafe-inline'
+      https://fonts.googleapis.com;
+    font-src
+      'self'
+      https://fonts.gstatic.com;
+    frame-src
+      https://hardy-bream-6185.clerk.accounts.dev;
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+    frame-ancestors 'self';
+    upgrade-insecure-requests;
+  "
+>
 >
 
   <title>Login | FlamingoRise</title>
