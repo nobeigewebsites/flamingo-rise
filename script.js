@@ -61,6 +61,21 @@ window.addEventListener("load", async () => {
 
   await Clerk.load();
 
+     /* ---------- SUPABASE CLIENT ---------- */
+
+  const supabaseClient =
+    supabase.createClient(
+      "https://pfksqkmbzfngznzejuxt.supabase.co",
+      "sb_publishable_jp8Or8JiSyYPCday_0RoAA_bq5Zey38",
+      {
+        accessToken: async () => {
+          return Clerk.session
+            ? await Clerk.session.getToken()
+            : null;
+        }
+      }
+    );
+
 
   /* ---------- PAGE SECTIONS ---------- */
 
