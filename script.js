@@ -22,8 +22,6 @@ if (menuToggle && mainNav) {
   });
 
 
-  /* Close menu after clicking a navigation link */
-
   mainNav.querySelectorAll("a").forEach(link => {
 
     link.addEventListener("click", () => {
@@ -57,11 +55,6 @@ if (year) {
 
 window.addEventListener("load", async () => {
 
-  /*
-    Clerk only exists on pages where the Clerk scripts
-    have been loaded — currently login.html.
-  */
-
   if (typeof Clerk === "undefined") {
     return;
   }
@@ -69,17 +62,35 @@ window.addEventListener("load", async () => {
   await Clerk.load();
 
 
-  /* ---------- HELPER: SHOW FORM MESSAGE ---------- */
+  /* ---------- PAGE SECTIONS ---------- */
+
+  const loginHero =
+    document.querySelector(".login-hero");
+
+  const createAccountSection =
+    document.querySelector(".create-account-section");
+
+  const memberPreview =
+    document.querySelector(".member-preview");
+
+  const memberDashboard =
+    document.querySelector(".member-dashboard-preview");
+
+
+  /* ---------- HELPER: AUTH MESSAGE ---------- */
 
   function showAuthMessage(form, message, type = "error") {
 
-    let messageBox = form.querySelector(".auth-message");
+    let messageBox =
+      form.querySelector(".auth-message");
 
     if (!messageBox) {
 
-      messageBox = document.createElement("p");
+      messageBox =
+        document.createElement("p");
 
-      messageBox.className = "auth-message";
+      messageBox.className =
+        "auth-message";
 
       form.appendChild(messageBox);
 
@@ -91,29 +102,145 @@ window.addEventListener("load", async () => {
   }
 
 
-  /* ---------- ALREADY SIGNED IN ---------- */
+  /* =========================================================
+     SHOW CORRECT VIEW
+     ========================================================= */
 
-  if (Clerk.user) {
+  function updateMemberView() {
 
-    const firstName =
-      Clerk.user.firstName ||
-      Clerk.user.primaryEmailAddress?.emailAddress?.split("@")[0] ||
-      "you";
+    if (Clerk.user) {
 
-    document
-      .querySelectorAll(".member-name")
-      .forEach(element => {
-        element.textContent = firstName;
-      });
+      /* Hide login/signup */
 
-    const dashboardName =
-      document.getElementById("dashboard-first-name");
+      if (loginHero) {
+        loginHero.style.display = "none";
+      }
 
-    if (dashboardName) {
-      dashboardName.textContent = firstName;
+      if (createAccountSection) {
+        createAccountSection.style.display = "none";
+      }
+
+
+      /* Show member area */
+
+      if (memberPreview) {
+        memberPreview.style.display = "";
+      }
+
+      if (memberDashboard) {
+        memberDashboard.style.display = "";
+      }
+
+
+      /* Member name */
+
+      const firstName =
+        Clerk.user.firstName ||
+        Clerk.user.primaryEmailAddress
+          ?.emailAddress
+          ?.split("@")[0] ||
+        "you";
+
+
+      document
+        .querySelectorAll(".member-name")
+        .forEach(element => {
+
+          element.textContent =
+            firstName;
+
+        });
+
+
+      const dashboardName =
+        document.getElementById(
+          "dashboard-first-name"
+        );
+
+      if (dashboardName) {
+
+        dashboardName.textContent =
+          firstName;
+
+      }
+
+
+      /* Add logout button */
+
+      const quickLinks =
+        document.querySelector(
+          ".dashboard-quick-links"
+        );
+
+      if (
+        quickLinks &&
+        !document.getElementById("logout-button")
+      ) {
+
+        const logoutButton =
+          document.createElement("button");
+
+        logoutButton.id =
+          "logout-button";
+
+        logoutButton.type =
+          "button";
+
+        logoutButton.textContent =
+          "Log out →";
+
+
+        logoutButton.addEventListener(
+          "click",
+          async () => {
+
+            await Clerk.signOut();
+
+            window.location.reload();
+
+          }
+        );
+
+
+        quickLinks.appendChild(
+          logoutButton
+        );
+
+      }
+
+    }
+
+    else {
+
+      /* Show login/signup */
+
+      if (loginHero) {
+        loginHero.style.display = "";
+      }
+
+      if (createAccountSection) {
+        createAccountSection.style.display = "";
+      }
+
+
+      /* Hide member area */
+
+      if (memberPreview) {
+        memberPreview.style.display = "none";
+      }
+
+      if (memberDashboard) {
+        memberDashboard.style.display = "none";
+      }
+
     }
 
   }
+
+
+  /* Run immediately */
+
+  updateMemberView();
 
 
   /* =========================================================
@@ -125,95 +252,125 @@ window.addEventListener("load", async () => {
 
   if (loginForm) {
 
-    loginForm.addEventListener("submit", async event => {
+    loginForm.addEventListener(
+      "submit",
+      async event => {
 
-      event.preventDefault();
-
-      const email =
-        document.getElementById("login-email").value.trim();
-
-      const password =
-        document.getElementById("login-password").value;
-
-      const button =
-        loginForm.querySelector('button[type="submit"]');
-
-      const originalButtonText =
-        button.textContent;
-
-      button.disabled = true;
-      button.textContent = "Letting you in...";
-
-      try {
-
-        const signInAttempt =
-          await Clerk.client.signIn.create({
-            identifier: email,
-            password: password
-          });
+        event.preventDefault();
 
 
-        if (signInAttempt.status === "complete") {
+        /* Prevent pointless second login */
 
-          await Clerk.setActive({
-            session: signInAttempt.createdSessionId
-          });
+        if (Clerk.user) {
 
-          showAuthMessage(
-            loginForm,
-            "You're in. 🎉",
-            "success"
-          );
-
-          window.location.reload();
+          updateMemberView();
 
           return;
 
         }
 
 
-        /*
-          Clerk can sometimes require an additional
-          verification step depending on account/security
-          settings. We'll wire that UI next if it occurs.
-        */
+        const email =
+          document
+            .getElementById("login-email")
+            .value
+            .trim();
 
-        console.log(
-          "Additional sign-in step required:",
-          signInAttempt
-        );
 
-        showAuthMessage(
-          loginForm,
-          "One more verification step is needed. We'll sort that next."
-        );
+        const password =
+          document
+            .getElementById("login-password")
+            .value;
+
+
+        const button =
+          loginForm.querySelector(
+            'button[type="submit"]'
+          );
+
+
+        const originalButtonText =
+          button.textContent;
+
+
+        button.disabled = true;
+
+        button.textContent =
+          "Letting you in...";
+
+
+        try {
+
+          const signInAttempt =
+            await Clerk.client.signIn.create({
+              identifier: email,
+              password: password
+            });
+
+
+          if (
+            signInAttempt.status ===
+            "complete"
+          ) {
+
+            await Clerk.setActive({
+              session:
+                signInAttempt.createdSessionId
+            });
+
+
+            updateMemberView();
+
+            return;
+
+          }
+
+
+          console.log(
+            "Additional sign-in step required:",
+            signInAttempt
+          );
+
+
+          showAuthMessage(
+            loginForm,
+            "One more verification step is needed."
+          );
+
+        }
+
+        catch (error) {
+
+          console.error(
+            "Clerk login error:",
+            error
+          );
+
+
+          const message =
+            error?.errors?.[0]?.longMessage ||
+            error?.errors?.[0]?.message ||
+            "That login didn't work. Check your email and password and try again.";
+
+
+          showAuthMessage(
+            loginForm,
+            message
+          );
+
+        }
+
+        finally {
+
+          button.disabled = false;
+
+          button.textContent =
+            originalButtonText;
+
+        }
 
       }
-
-      catch (error) {
-
-        console.error("Clerk login error:", error);
-
-        const message =
-          error?.errors?.[0]?.longMessage ||
-          error?.errors?.[0]?.message ||
-          "That login didn't work. Check your email and password and try again.";
-
-        showAuthMessage(
-          loginForm,
-          message
-        );
-
-      }
-
-      finally {
-
-        button.disabled = false;
-        button.textContent = originalButtonText;
-
-      }
-
-    });
+    );
 
   }
 
@@ -223,7 +380,10 @@ window.addEventListener("load", async () => {
      ========================================================= */
 
   const createAccountForm =
-    document.querySelector(".create-account-form");
+    document.querySelector(
+      ".create-account-form"
+    );
+
 
   if (createAccountForm) {
 
@@ -233,30 +393,46 @@ window.addEventListener("load", async () => {
 
         event.preventDefault();
 
+
         const firstName =
-          document.getElementById("first-name").value.trim();
+          document
+            .getElementById("first-name")
+            .value
+            .trim();
+
 
         const email =
-          document.getElementById("register-email").value.trim();
+          document
+            .getElementById("register-email")
+            .value
+            .trim();
+
 
         const password =
-          document.getElementById("register-password").value;
+          document
+            .getElementById("register-password")
+            .value;
+
 
         const confirmPassword =
-          document.getElementById("confirm-password").value;
+          document
+            .getElementById("confirm-password")
+            .value;
+
 
         const button =
           createAccountForm.querySelector(
             'button[type="submit"]'
           );
 
+
         const originalButtonText =
           button.textContent;
 
 
-        /* Passwords must match */
-
-        if (password !== confirmPassword) {
+        if (
+          password !== confirmPassword
+        ) {
 
           showAuthMessage(
             createAccountForm,
@@ -269,7 +445,9 @@ window.addEventListener("load", async () => {
 
 
         button.disabled = true;
-        button.textContent = "Creating your account...";
+
+        button.textContent =
+          "Creating your account...";
 
 
         try {
@@ -281,27 +459,16 @@ window.addEventListener("load", async () => {
           });
 
 
-          /*
-            Send Clerk's email verification code.
-          */
-
           await Clerk.client.signUp
             .prepareEmailAddressVerification({
               strategy: "email_code"
             });
 
 
-          /*
-            Ask for the verification code.
-
-            Temporary simple prompt for our first test.
-            Once we know everything works, we'll replace
-            this with a proper FlamingoRise verification box.
-          */
-
-          const code = window.prompt(
-            "Check your email for your FlamingoRise verification code and enter it here."
-          );
+          const code =
+            window.prompt(
+              "Check your email for your FlamingoRise verification code and enter it here."
+            );
 
 
           if (!code) {
@@ -323,21 +490,18 @@ window.addEventListener("load", async () => {
               });
 
 
-          if (signUpAttempt.status === "complete") {
+          if (
+            signUpAttempt.status ===
+            "complete"
+          ) {
 
             await Clerk.setActive({
-              session: signUpAttempt.createdSessionId
+              session:
+                signUpAttempt.createdSessionId
             });
 
 
-            showAuthMessage(
-              createAccountForm,
-              "Account created. Welcome to FlamingoRise 🦩",
-              "success"
-            );
-
-
-            window.location.reload();
+            updateMemberView();
 
             return;
 
@@ -352,7 +516,7 @@ window.addEventListener("load", async () => {
 
           showAuthMessage(
             createAccountForm,
-            "Your email was verified, but Clerk needs another step before finishing the account."
+            "Your email was verified, but another step is needed."
           );
 
         }
@@ -370,6 +534,7 @@ window.addEventListener("load", async () => {
             error?.errors?.[0]?.message ||
             "Something went wrong creating your account. Try again.";
 
+
           showAuthMessage(
             createAccountForm,
             message
@@ -380,7 +545,9 @@ window.addEventListener("load", async () => {
         finally {
 
           button.disabled = false;
-          button.textContent = originalButtonText;
+
+          button.textContent =
+            originalButtonText;
 
         }
 
