@@ -202,8 +202,7 @@ if (logoutButton) {
   );
 
 }
-        );
-
+      
 
         quickLinks.appendChild(
           logoutButton
