@@ -671,50 +671,106 @@ window.addEventListener(
              PRIVATE STORAGE PLACEHOLDER
              ----------------------------------------------------- */
 
-          else if (
-            resource.storage_path
-          ) {
+          else if (resource.storage_path) {
 
-            const privateNote =
-              document.createElement(
-                "p"
-              );
+  const downloadButton =
+    document.createElement("button");
 
-            privateNote.className =
-              "member-resource-private-note";
+  downloadButton.type = "button";
 
-            privateNote.textContent =
-              "Secure download available.";
+  downloadButton.className =
+    "button button-primary";
 
-            article.appendChild(
-              privateNote
+  downloadButton.textContent =
+    "Download resource →";
+
+
+  downloadButton.addEventListener(
+    "click",
+    async () => {
+
+      const originalText =
+        downloadButton.textContent;
+
+      downloadButton.disabled = true;
+
+      downloadButton.textContent =
+        "Getting your file...";
+
+
+      try {
+
+        const {
+          data,
+          error
+        } =
+          await supabaseClient
+            .functions
+            .invoke(
+              "secure-resource-download",
+              {
+                body: {
+                  resourceId:
+                    resource.id
+                }
+              }
             );
 
-          }
+
+        if (
+          error ||
+          !data?.url
+        ) {
+
+          console.error(
+            "Secure download error:",
+            error || data
+          );
+
+          alert(
+            data?.error ||
+            "Could not open this resource."
+          );
+
+          return;
+        }
 
 
-          /* -----------------------------------------------------
-             TEST / NO FILE ATTACHED YET
-             ----------------------------------------------------- */
+        window.open(
+          data.url,
+          "_blank",
+          "noopener,noreferrer"
+        );
 
-          else {
+      } catch (error) {
 
-            const testNote =
-              document.createElement(
-                "p"
-              );
+        console.error(
+          "Download failed:",
+          error
+        );
 
-            testNote.className =
-              "member-resource-private-note";
+        alert(
+          "Something went wrong opening the resource."
+        );
 
-            testNote.textContent =
-              "Access confirmed — this resource is attached to your account.";
+      } finally {
 
-            article.appendChild(
-              testNote
-            );
+        downloadButton.disabled =
+          false;
 
-          }
+        downloadButton.textContent =
+          originalText;
+
+      }
+
+    }
+  );
+
+
+  item.appendChild(
+    downloadButton
+  );
+}
 
 
           memberResourcesList.appendChild(
