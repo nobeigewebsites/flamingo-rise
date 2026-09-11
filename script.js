@@ -135,11 +135,29 @@ window.addEventListener("load", async () => {
       /* Member name */
 
       const firstName =
-        Clerk.user.firstName ||
-        Clerk.user.primaryEmailAddress
-          ?.emailAddress
-          ?.split("@")[0] ||
-        "you";
+  Clerk.user.firstName ||
+  Clerk.user.primaryEmailAddress
+    ?.emailAddress
+    ?.split("@")[0] ||
+  "you";
+
+
+const memberNavLink =
+  document.getElementById("member-nav-link");
+
+if (memberNavLink) {
+  memberNavLink.textContent = "My Space";
+}
+
+
+document
+  .querySelectorAll(".member-name")
+  .forEach(element => {
+
+    element.textContent =
+      firstName;
+
+  });
 
 
       document
