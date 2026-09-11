@@ -1474,3 +1474,90 @@ window.addEventListener(
 /* =========================================================
    END
    ========================================================= */
+
+// =========================================================
+// COOKIE NOTICE
+// =========================================================
+
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+
+    const COOKIE_NOTICE_KEY =
+      "flamingorise-cookie-notice";
+
+    const alreadySeen =
+      localStorage.getItem(
+        COOKIE_NOTICE_KEY
+      );
+
+    if (alreadySeen) {
+      return;
+    }
+
+    const banner =
+      document.createElement("div");
+
+    banner.className =
+      "cookie-banner";
+
+    banner.innerHTML = `
+      <div class="cookie-banner-inner">
+
+        <div class="cookie-banner-copy">
+
+          <p class="cookie-banner-eyebrow">
+            Tiny cookie heads-up 🍪
+          </p>
+
+          <p>
+            FlamingoRise uses essential cookies and
+            similar technology to keep things like
+            member login and account security working.
+            No creepy advertising nonsense.
+          </p>
+
+          <a href="cookies.html">
+            Read the cookie policy →
+          </a>
+
+        </div>
+
+        <button
+          type="button"
+          class="cookie-banner-button"
+          id="cookie-banner-close"
+        >
+          Got it
+        </button>
+
+      </div>
+    `;
+
+    document.body.appendChild(
+      banner
+    );
+
+    const closeButton =
+      document.getElementById(
+        "cookie-banner-close"
+      );
+
+    closeButton.addEventListener(
+      "click",
+      () => {
+
+        localStorage.setItem(
+          COOKIE_NOTICE_KEY,
+          "seen"
+        );
+
+        banner.remove();
+
+      }
+    );
+
+  }
+);
+
+
