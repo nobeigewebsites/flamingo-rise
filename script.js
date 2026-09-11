@@ -771,6 +771,18 @@ window.addEventListener(
   );
 
 }
+
+                     memberResourcesList.appendChild(
+            article
+          );
+
+        }
+
+      );
+
+    }
+
+     
     /* =========================================================
        MEMBER RESOURCE PANEL TOGGLE
        ========================================================= */
