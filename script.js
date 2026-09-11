@@ -7,38 +7,50 @@
    MOBILE NAVIGATION
    ========================================================= */
 
-const menuToggle = document.querySelector(".menu-toggle");
-const mainNav = document.querySelector(".main-nav");
+const menuToggle =
+  document.querySelector(".menu-toggle");
+
+const mainNav =
+  document.querySelector(".main-nav");
+
 
 if (menuToggle && mainNav) {
 
-  menuToggle.addEventListener("click", () => {
+  menuToggle.addEventListener(
+    "click",
+    () => {
 
-    const isOpen =
-      mainNav.classList.toggle("active");
+      const isOpen =
+        mainNav.classList.toggle("active");
 
-    menuToggle.setAttribute(
-      "aria-expanded",
-      isOpen ? "true" : "false"
-    );
+      menuToggle.setAttribute(
+        "aria-expanded",
+        isOpen ? "true" : "false"
+      );
 
-  });
+    }
+  );
 
 
   mainNav
     .querySelectorAll("a")
     .forEach(link => {
 
-      link.addEventListener("click", () => {
+      link.addEventListener(
+        "click",
+        () => {
 
-        mainNav.classList.remove("active");
+          mainNav.classList.remove(
+            "active"
+          );
 
-        menuToggle.setAttribute(
-          "aria-expanded",
-          "false"
-        );
+          menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+          );
 
-      });
+        }
+      );
 
     });
 
@@ -252,9 +264,7 @@ window.addEventListener(
         null;
 
 
-      const {
-        error
-      } =
+      const { error } =
         await supabaseClient
 
           .from(
@@ -310,6 +320,67 @@ window.addEventListener(
 
 
     /* =========================================================
+       LOAD MEMBER RESOURCES
+       ========================================================= */
+
+    async function loadMemberResources() {
+
+      if (!Clerk.user) {
+        return [];
+      }
+
+
+      const {
+        data,
+        error
+      } =
+        await supabaseClient
+
+          .from(
+            "member_resources"
+          )
+
+          .select(`
+            resource_id,
+            resources (
+              id,
+              slug,
+              title,
+              resource_type,
+              description,
+              is_free,
+              price_pence,
+              payhip_url,
+              storage_path,
+              is_active
+            )
+          `);
+
+
+      if (error) {
+
+        console.error(
+          "Supabase member resources error:",
+          error
+        );
+
+        return [];
+
+      }
+
+
+      console.log(
+        "Member resources:",
+        data
+      );
+
+
+      return data;
+
+    }
+
+
+    /* =========================================================
        SHOW CORRECT MEMBER VIEW
        ========================================================= */
 
@@ -326,6 +397,11 @@ window.addEventListener(
         /* Sync member with database */
 
         await syncMemberProfile();
+
+
+        /* Load owned resources */
+
+        await loadMemberResources();
 
 
         /* Hide login */
@@ -529,8 +605,6 @@ window.addEventListener(
           event.preventDefault();
 
 
-          /* Already logged in */
-
           if (Clerk.user) {
 
             await updateMemberView();
@@ -620,11 +694,8 @@ window.addEventListener(
 
 
             showAuthMessage(
-
               loginForm,
-
               "One more verification step is needed."
-
             );
 
           }
@@ -744,8 +815,6 @@ window.addEventListener(
             const originalButtonText =
               button.textContent;
 
-
-            /* Password match */
 
             if (
               password !==
