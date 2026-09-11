@@ -22,7 +22,7 @@ if (menuToggle && mainNav) {
   });
 
 
-  mainNav.querySelectorAll("a").forEach(link => {
+  mainNav.All("a").forEach(link => {
 
     link.addEventListener("click", () => {
 
@@ -65,16 +65,16 @@ window.addEventListener("load", async () => {
   /* ---------- PAGE SECTIONS ---------- */
 
   const loginHero =
-    document.querySelector(".login-hero");
+    document.(".login-hero");
 
   const createAccountSection =
-    document.querySelector(".create-account-section");
+    document.(".create-account-section");
 
   const memberPreview =
-    document.querySelector(".member-preview");
+    document.(".member-preview");
 
   const memberDashboard =
-  document.querySelector(".member-account-section");
+  document.(".member-account-section");
 
 
   /* ---------- HELPER: AUTH MESSAGE ---------- */
@@ -82,7 +82,7 @@ window.addEventListener("load", async () => {
   function showAuthMessage(form, message, type = "error") {
 
     let messageBox =
-      form.querySelector(".auth-message");
+      form.(".auth-message");
 
     if (!messageBox) {
 
@@ -159,16 +159,7 @@ document
 
   });
 
-
-      document
-        .querySelectorAll(".member-name")
-        .forEach(element => {
-
-          element.textContent =
-            firstName;
-
-        });
-
+   
 
       const dashboardName =
         document.getElementById(
